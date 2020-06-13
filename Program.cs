@@ -28,6 +28,9 @@ namespace noughtsAndCrosses
         private static BoardState GetStateOfBoard(string board) 
         {
             // complete this method so that it returns the correct board state
+
+            char[] boardArray = board.ToCharArray();
+            Console.WriteLine(boardArray);
             
             if(board.Length == 9) 
             {
@@ -56,10 +59,12 @@ namespace noughtsAndCrosses
                     return BoardState.INITIAL;
                 }
 
-                if(((a.Equals(b) && a.Equals(c)) || (a.Equals(d) && a.Equals(g)) || (a.Equals(e) && a.Equals(i))) && !(a.Equals('_')))
+                if((board[0].Equals(board[1]) && board[1].Equals(board[2])) && !(a.Equals('_')))
                 {   
-                    return CheckWinner(a);  
+                    return CheckWinner(board[0]);  
                 }
+
+
 
                 else if (((g.Equals(h) && g.Equals(i)) || (c.Equals(f) && c.Equals(i))) && !(i.Equals('_'))) 
                 {
