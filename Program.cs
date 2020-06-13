@@ -7,9 +7,10 @@ namespace noughtsAndCrosses
         private enum BoardState 
         {
             // complete this enum with all the possible states of a noughts and crosses board (there's more than 3)
-            INITIAL, IN_PLAY, NOUGHTS_WIN, CROSSES_WIN, DRAW, INVALID
+            INITIAL, IN_PLAY, NOUGHTS_WIN, CROSSES_WIN, DRAW, INVALID, CHEAT
         }
 
+        //Check winner takes a winning 3-in-a-row and checks if X or O is the winner
         private static BoardState CheckWinner(char a)
             {
                 if(a == 'X') 
@@ -41,13 +42,21 @@ namespace noughtsAndCrosses
                 char h = board[7];
                 char i = board[8];
 
+                int countX = board.Split('X').Length-1;
+                int countO = board.Split('O').Length-1;
+
+                if(countX<countO) {
+                    Console.WriteLine("Someone is cheating!");
+                    return BoardState.CHEAT;
+                }
+
                 if(board == "_________") 
                 {
                     Console.WriteLine("The game is ready to start");
                     return BoardState.INITIAL;
                 }
 
-                if(((a.Equals(b, c) && a.Equals(c)) || (a.Equals(d) && a.Equals(g)) || (a.Equals(e) && a.Equals(i))) && !(a.Equals('_')))
+                if(((a.Equals(b) && a.Equals(c)) || (a.Equals(d) && a.Equals(g)) || (a.Equals(e) && a.Equals(i))) && !(a.Equals('_')))
                 {   
                     return CheckWinner(a);  
                 }
