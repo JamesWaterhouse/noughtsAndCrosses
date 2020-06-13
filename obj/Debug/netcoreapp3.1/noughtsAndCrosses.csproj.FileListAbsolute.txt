@@ -1,0 +1,12 @@
+/Users/academy/sites/academyServer/html/noughtsAndCrosses/bin/Debug/netcoreapp3.1/noughtsAndCrosses.deps.json
+/Users/academy/sites/academyServer/html/noughtsAndCrosses/bin/Debug/netcoreapp3.1/noughtsAndCrosses.runtimeconfig.json
+/Users/academy/sites/academyServer/html/noughtsAndCrosses/bin/Debug/netcoreapp3.1/noughtsAndCrosses.runtimeconfig.dev.json
+/Users/academy/sites/academyServer/html/noughtsAndCrosses/bin/Debug/netcoreapp3.1/noughtsAndCrosses.dll
+/Users/academy/sites/academyServer/html/noughtsAndCrosses/bin/Debug/netcoreapp3.1/noughtsAndCrosses.pdb
+/Users/academy/sites/academyServer/html/noughtsAndCrosses/obj/Debug/netcoreapp3.1/noughtsAndCrosses.csprojAssemblyReference.cache
+/Users/academy/sites/academyServer/html/noughtsAndCrosses/obj/Debug/netcoreapp3.1/noughtsAndCrosses.AssemblyInfoInputs.cache
+/Users/academy/sites/academyServer/html/noughtsAndCrosses/obj/Debug/netcoreapp3.1/noughtsAndCrosses.AssemblyInfo.cs
+/Users/academy/sites/academyServer/html/noughtsAndCrosses/obj/Debug/netcoreapp3.1/noughtsAndCrosses.csproj.CoreCompileInputs.cache
+/Users/academy/sites/academyServer/html/noughtsAndCrosses/obj/Debug/netcoreapp3.1/noughtsAndCrosses.dll
+/Users/academy/sites/academyServer/html/noughtsAndCrosses/obj/Debug/netcoreapp3.1/noughtsAndCrosses.pdb
+/Users/academy/sites/academyServer/html/noughtsAndCrosses/obj/Debug/netcoreapp3.1/noughtsAndCrosses.genruntimeconfig.cache
