@@ -7,7 +7,7 @@ namespace noughtsAndCrosses
         private enum BoardState 
         {
             // complete this enum with all the possible states of a noughts and crosses board (there's more than 3)
-            INITIAL, IN_PLAY, NOUGHTS_WIN, CROSSES_WIN, DRAW
+            INITIAL, IN_PLAY, NOUGHTS_WIN, CROSSES_WIN, DRAW, WIN
         }
         private static BoardState GetStateOfBoard(string board) 
         {
@@ -17,7 +17,7 @@ namespace noughtsAndCrosses
                 Console.WriteLine("The game has not yet started");
                 return BoardState.INITIAL;
             }
-
+          
             char a = board[0];
             char b = board[1];
             char c = board[2];
@@ -28,20 +28,16 @@ namespace noughtsAndCrosses
             char h = board[7];
             char i = board[8];
 
-            string X = "XXX";
-            string O = "OOO";
+            // if((a.Equals(b) && a.Equals(c)) || (d.Equals(e) && d.Equals(f)) || (g.Equals(h) && g.Equals(i)) || (a.Equals(d) && a.Equals(g)) || (b.Equals(e) && b.Equals(h)) || (c.Equals(f) && c.Equals(i)) || (a.Equals(e) && a.Equals(i)) || (g.Equals(e) && g.Equals(c))) {
 
-            Console.WriteLine(a);
-
-            Console.WriteLine(a+b+c);
+            //     return BoardState.WIN;
+            // }
 
 
-            if(X.Equals(a+b+c))
-            {
-                return BoardState.CROSSES_WIN;
-            }
+           
+          
 
-            return BoardState.NOUGHTS_WIN;
+            return BoardState.DRAW;
         }
         static void Main(string[] args) 
         {
