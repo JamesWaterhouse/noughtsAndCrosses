@@ -27,12 +27,7 @@ namespace noughtsAndCrosses
         private static BoardState GetStateOfBoard(string board) 
         {
             // complete this method so that it returns the correct board state
-            if(board == "_________") 
-            {
-                Console.WriteLine("The game is ready to start");
-                return BoardState.INITIAL;
-            }
-          
+            
             char a = board[0];
             char b = board[1];
             char c = board[2];
@@ -43,34 +38,34 @@ namespace noughtsAndCrosses
             char h = board[7];
             char i = board[8];
 
-        if(((a.Equals(b) && a.Equals(c)) || (a.Equals(d) && a.Equals(g)) || (a.Equals(e) && a.Equals(i))) && !(a.Equals('_')))
+            if(board == "_________") 
+            {
+                Console.WriteLine("The game is ready to start");
+                return BoardState.INITIAL;
+            }
+
+            if(((a.Equals(b) && a.Equals(c)) || (a.Equals(d) && a.Equals(g)) || (a.Equals(e) && a.Equals(i))) && !(a.Equals('_')))
             {   
-                Console.WriteLine(a);
-                Console.WriteLine("a ran");
                 return CheckWinner(a);  
             }
 
             else if (((g.Equals(h) && g.Equals(i)) || (c.Equals(f) && c.Equals(i))) && !(i.Equals('_'))) 
             {
-                Console.WriteLine("i ran");
                 return CheckWinner(i); 
             }
 
             else if(d.Equals(e) && d.Equals(f) && !(d.Equals('_'))) 
             {
-                Console.WriteLine("d ran");
                 return CheckWinner(d); 
             }
 
             else if(b.Equals(e) && b.Equals(h) && !(b.Equals('_'))) 
             {
-                Console.WriteLine("b ran");
                 return CheckWinner(b); 
             }
 
             else if(g.Equals(e) && g.Equals(c) && !(g.Equals('_'))) 
             {
-                Console.WriteLine("g ran");
                 return CheckWinner(g); 
             }
 
