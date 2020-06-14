@@ -6,102 +6,63 @@ namespace noughtsAndCrosses
     {
         private enum BoardState 
         {
-            // complete this enum with all the possible states of a noughts and crosses board (there's more than 3)
             INITIAL, IN_PLAY, NOUGHTS_WIN, CROSSES_WIN, DRAW, INVALID, CHEAT
         }
 
-        //Check winner takes a winning 3-in-a-row and checks if X or O is the winner
-        private static BoardState CheckWinner(char a)
+        //Takes a winning 3-in-a-row and checks if it is X or O
+        private static BoardState CheckWinner(char winner)
+        {
+            if(winner == 'X') 
             {
-                if(a == 'X') 
-                {
-                    Console.WriteLine("Crosses Win!");
-                   return BoardState.CROSSES_WIN;
-                }
-                else
-                {
-                    Console.WriteLine("Noughts Win!");
-                    return BoardState.NOUGHTS_WIN;
-                }
+                Console.WriteLine("Crosses Win!");
+                return BoardState.CROSSES_WIN;
             }
-
+            
+            Console.WriteLine("Noughts Win!");
+            return BoardState.NOUGHTS_WIN;
+            
+        }
+        // Takes in a result string and checks validity and winning combinations. Returns the state of the game.
         private static BoardState GetStateOfBoard(string board) 
         {
-            // complete this method so that it returns the correct board state
-
-            char[] boardArray = board.ToCharArray();
-            Console.WriteLine(boardArray);
-            
-            if(board.Length == 9) 
+        
+            // check rows for 3-in-a-row and returns the correct board state if found
+            int r;
+            for (r = 0; r < 7; r += 3)
             {
-
-                char a = board[0];
-                char b = board[1];
-                char c = board[2];
-                char d = board[3];
-                char e = board[4];
-                char f = board[5];
-                char g = board[6];
-                char h = board[7];
-                char i = board[8];
-
-                int countX = board.Split('X').Length-1;
-                int countO = board.Split('O').Length-1;
-
-                if(countX<countO) {
-                    Console.WriteLine("Someone is cheating!");
-                    return BoardState.CHEAT;
-                }
-
-                if(board == "_________") 
-                {
-                    Console.WriteLine("The game is ready to start");
-                    return BoardState.INITIAL;
-                }
-
-                if((board[0].Equals(board[1]) && board[1].Equals(board[2])) && !(a.Equals('_')))
-                {   
-                    return CheckWinner(board[0]);  
-                }
-
-
-
-                else if (((g.Equals(h) && g.Equals(i)) || (c.Equals(f) && c.Equals(i))) && !(i.Equals('_'))) 
-                {
-                    return CheckWinner(i); 
-                }
-
-                else if(d.Equals(e) && d.Equals(f) && !(d.Equals('_'))) 
-                {
-                    return CheckWinner(d); 
-                }
-
-                else if(b.Equals(e) && b.Equals(h) && !(b.Equals('_'))) 
-                {
-                    return CheckWinner(b); 
-                }
-
-                else if(g.Equals(e) && g.Equals(c) && !(g.Equals('_'))) 
-                {
-                    return CheckWinner(g); 
-                }
-
-                if(board.Contains('_')) 
-                {
-                    Console.WriteLine("There are moves left to play");
-                    return BoardState.IN_PLAY;
-                }
-
-                Console.WriteLine("It's a draw!");
-                return BoardState.DRAW;   
+               if(board[0+r].Equals(board[1+r]) && board[1+r].Equals(board[2+r]) && !board[0+r].Equals('_'))
+               {
+                   return CheckWinner(board[0+r]);
+               }
             }
 
-            Console.WriteLine("The board must be made up of 9 squares");
-            return BoardState.INVALID;
+            //check columns for 3-in-a-row and returns the correct board state if found
+            int c;
+            for (c = 0; c < 3; c++)
+            {
+               if(board[0+c].Equals(board[3+c]) && board[3+c].Equals(board[6+c]) && !board[0+c].Equals('_'))
+               {
+                   return CheckWinner(board[0+c]);
+               }
+            }
+
+            // check diagonals for 3-in-a-row and returns the correct board state if found
+            if(board[0].Equals(board[4]) && board[4].Equals(board[8]) && !board[0].Equals('_'))
+            {
+                return CheckWinner(board[0]);
+            }
+            if(board[2].Equals(board[4]) && board[4].Equals(board[6]) && !board[0].Equals('_'))
+            {
+                return CheckWinner(board[2]);
+            }
+
+            //returns draw if no winning 3-in-a-row found
+            return BoardState.DRAW;
+
         }
+        //checks multiple input strings
         static void Main(string[] args) 
         {
-            // leave this main method unchanged
             for (int i = 0; i < args.Length; i++)
             {
                 System.Console.WriteLine(GetStateOfBoard(args[i]));
